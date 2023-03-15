@@ -546,7 +546,6 @@ namespace projectfastfood
             if (!found)
             {
                 int rowIndex = dataGridViewOrders.Rows.Add();
-
                 dataGridViewOrders.Rows[rowIndex].Cells["Column2"].Value = controlFoods.Pnumber;
                 dataGridViewOrders.Rows[rowIndex].Cells["Column3"].Value = controlFoods.Pname;
                 dataGridViewOrders.Rows[rowIndex].Cells["Column4"].Value = controlFoods.Pbalance;
