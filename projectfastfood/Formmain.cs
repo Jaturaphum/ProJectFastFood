@@ -441,11 +441,6 @@ namespace projectfastfood
             Load_Items();
         }
 
-        private void btnNeworder_Click(object sender, EventArgs e)
-        {
-            new_order();
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             ControlFoods controlFoods = new ControlFoods();
@@ -556,9 +551,15 @@ namespace projectfastfood
                 dataGridViewOrders.Rows[rowIndex].Cells["Column3"].Value = controlFoods.Pname;
                 dataGridViewOrders.Rows[rowIndex].Cells["Column4"].Value = controlFoods.Pbalance;
                 dataGridViewOrders.Rows[rowIndex].Cells["Column5"].Value = "1";
+                decimal price = Convert.ToDecimal(controlFoods.Pbalance.Replace("$", ""));
+                dataGridViewOrders.Rows[rowIndex].Cells["Column6"].Value = price.ToString("C");
             }
         }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            new_order();
+        }
 
         private void Account()
         {
