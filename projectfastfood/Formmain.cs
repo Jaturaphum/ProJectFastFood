@@ -444,11 +444,12 @@ namespace projectfastfood
                 byte[] imgData = File.ReadAllBytes(pop.FileName);
 
 
-                string query = "UPDATE  user_db SET user_img = @ImageData WHERE password = @pass";
+                string query = "UPDATE  user_db SET user_img = @ImageData WHERE password = @pass AND user_name = @name";
 
                 MySqlConnection conn = new MySqlConnection(ConnectionString);
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@ImageData", imgData);
+                cmd.Parameters.AddWithValue("@name", this.Username);
                 cmd.Parameters.AddWithValue("@pass", this.Password);
 
                 conn.Open();
@@ -456,6 +457,7 @@ namespace projectfastfood
                 cmd.ExecuteNonQuery();
 
                 conn.Close();
+                
             }
         }
 
