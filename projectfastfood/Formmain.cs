@@ -214,24 +214,15 @@ namespace projectfastfood
         {
             if (btn1.BackColor == Color.LawnGreen)
             {
-<<<<<<< HEAD
                 if (MessageBox.Show("คุณต้องการจะจองโต๊ะใช่หรือไม่?", "Message", MessageBoxButtons.OKCancel)
-=======
-                if (MessageBox.Show("คุณต้องการยืนยันการจองโต๊ะใช่หรือไม่ ?", "Message", MessageBoxButtons.OKCancel)
->>>>>>> bb3f6dfb9fe29e4fe4ac9f805916e4a45ec6c5dc
                     == DialogResult.OK) btn1.BackColor = Color.Red;
             }
             else
             {
-<<<<<<< HEAD
                 if (MessageBox.Show("คุณต้องการจะจองโต๊ะใช่หรือไม่?", "Message", MessageBoxButtons.OKCancel)
-=======
-                if (MessageBox.Show("คุณต้องการยกเลิกการจองโต๊ะหรือไม่?", "Message", MessageBoxButtons.OKCancel)
->>>>>>> bb3f6dfb9fe29e4fe4ac9f805916e4a45ec6c5dc
                     == DialogResult.OK) btn1.BackColor = Color.LawnGreen;
             }
         }
-
         private void btn2_Click(object sender, EventArgs e)
         {
             if (btn2.BackColor == Color.LawnGreen)
