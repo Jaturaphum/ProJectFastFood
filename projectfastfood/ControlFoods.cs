@@ -39,11 +39,5 @@ namespace projectfastfood
             get { return roundImage.Image; }
             set { roundImage.Image = value; }
         }
-
-        public Button Btnpick
-        {
-            get { return btnpick; }
-            set { btnpick = value; }
-        }
     }
 }

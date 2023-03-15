@@ -463,14 +463,17 @@ namespace projectfastfood
                     row.Cells["Total"].Value = string.Format("{0:C}", decimal.Parse(row.Cells["Total"].Value.ToString().Replace("$", "")) + decimal.Parse(controlFoods.Pbalance.Replace("$", "")));
                     found = true;
                     break;
+                    
                 }
             }
             if (!found)
             {
+                
                 int rowIndex = dataGridViewOrders.Rows.Add();
                 DataGridViewRow row = dataGridViewOrders.Rows[rowIndex];
                 row.Cells["OrderID"].Value = controlFoods.Pnumber;
                 row.Cells["OrderName"].Value = controlFoods.Pname;
+                
                 row.Cells["Balance"].Value = controlFoods.Pbalance;
                 row.Cells["Order"].Value = 1;
                 row.Cells["Total"].Value = controlFoods.Pbalance;
@@ -513,6 +516,49 @@ namespace projectfastfood
                 conn.Close();
             }
         }
+
+        private void dataGridViewOrders_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ControlFoods controlFoods = new ControlFoods();
+            controlFoods.Pnumber = "20230022";
+            controlFoods.Pname = "เนื้อเเผ่น";
+            controlFoods.Pbalance = "$49.00";
+            this.Controls.Add(controlFoods);
+
+            string pNumber = controlFoods.Pnumber;
+            bool found = false;
+            foreach (DataGridViewRow row in dataGridViewOrders.Rows)
+            {
+                if (row.Cells["Column2"].Value != null && row.Cells["Column2"].Value.ToString() == pNumber)
+                {
+                    int currentValue = Convert.ToInt32(row.Cells["Column5"].Value);
+                    row.Cells["Column5"].Value = (currentValue + 1).ToString();
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found)
+            {
+                int rowIndex = dataGridViewOrders.Rows.Add();
+
+                dataGridViewOrders.Rows[rowIndex].Cells["Column2"].Value = controlFoods.Pnumber;
+                dataGridViewOrders.Rows[rowIndex].Cells["Column3"].Value = controlFoods.Pname;
+                dataGridViewOrders.Rows[rowIndex].Cells["Column4"].Value = controlFoods.Pbalance;
+                dataGridViewOrders.Rows[rowIndex].Cells["Column5"].Value = "1";
+            }
+        }
+
 
         private void Account()
         {

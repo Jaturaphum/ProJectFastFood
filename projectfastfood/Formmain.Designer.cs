@@ -34,6 +34,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlPosition = new System.Windows.Forms.Panel();
             this.panelLeaft = new System.Windows.Forms.Panel();
             this.Useraccount = new System.Windows.Forms.Label();
@@ -93,13 +94,14 @@
             this.TboxAmount = new System.Windows.Forms.TextBox();
             this.pnlOrderlist = new System.Windows.Forms.Panel();
             this.dataGridViewOrders = new System.Windows.Forms.DataGridView();
-            this.orderid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelLeaft.SuspendLayout();
             this.panelAct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roundPictureBox1)).BeginInit();
@@ -661,6 +663,7 @@
             // 
             // panelOrders
             // 
+            this.panelOrders.Controls.Add(this.button3);
             this.panelOrders.Controls.Add(this.button1);
             this.panelOrders.Controls.Add(this.btnNeworder);
             this.panelOrders.Controls.Add(this.Tboxtable);
@@ -725,6 +728,7 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(840, 791);
             this.flowLayoutPanel1.TabIndex = 16;
+            this.flowLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel1_Paint);
             // 
             // panelAmount
             // 
@@ -882,11 +886,19 @@
             this.dataGridViewOrders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewOrders.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.orderid,
+            this.Column2,
             this.Column3,
             this.Column4,
             this.Column5,
-            this.Column10});
+            this.Column6});
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewOrders.DefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewOrders.Location = new System.Drawing.Point(-2, -2);
             this.dataGridViewOrders.Name = "dataGridViewOrders";
             this.dataGridViewOrders.ReadOnly = true;
@@ -895,46 +907,7 @@
             this.dataGridViewOrders.RowTemplate.Height = 24;
             this.dataGridViewOrders.Size = new System.Drawing.Size(528, 477);
             this.dataGridViewOrders.TabIndex = 0;
-            // 
-            // orderid
-            // 
-            this.orderid.HeaderText = "OrderID";
-            this.orderid.MinimumWidth = 6;
-            this.orderid.Name = "orderid";
-            this.orderid.ReadOnly = true;
-            this.orderid.Width = 120;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "OrderName";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 130;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Balance";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 80;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Order";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 80;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "Totel";
-            this.Column10.MinimumWidth = 6;
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            this.Column10.Width = 115;
+            this.dataGridViewOrders.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewOrders_CellContentClick);
             // 
             // textBox2
             // 
@@ -960,16 +933,65 @@
             this.label8.TabIndex = 1;
             this.label8.Text = "Orders";
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(117, 58);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(46, 40);
+            this.button3.TabIndex = 23;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "OrderID";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 120;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "OrderName";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 130;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Balance";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 80;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Order";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 80;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Totel";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 115;
+            // 
             // Formmain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1600, 900);
-            this.Controls.Add(this.panelLeaft);
-            this.Controls.Add(this.panelTable);
             this.Controls.Add(this.panelOrders);
+            this.Controls.Add(this.panelLeaft);
             this.Controls.Add(this.panelOrder);
+            this.Controls.Add(this.panelTable);
             this.Controls.Add(this.panelAct);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Formmain";
@@ -1052,11 +1074,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Ordername;
         private System.Windows.Forms.DataGridViewTextBoxColumn Balance;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn orderid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox Tboxtable;
@@ -1068,5 +1085,11 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label5;
         private RoundPictureBox roundPictureBox1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
     }
 }
