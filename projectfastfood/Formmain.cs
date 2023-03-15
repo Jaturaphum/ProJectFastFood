@@ -478,11 +478,25 @@ namespace projectfastfood
             new_order();
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void TboxAmount_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                decimal total = Convert.ToDecimal(TboxTotle.Text.Replace(",", "").Replace("฿", ""));
+                decimal amount = Convert.ToDecimal(TboxAmount.Text.Replace(",", ""));
+                TboxBalance.Text = (amount - total).ToString("#,##0.00");
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        private void mn1_Click(object sender, EventArgs e)
         {
             ControlFoods controlFoods = new ControlFoods();
-            controlFoods.Pnumber = "20230022";
-            controlFoods.Pname = "เนื้อเเผ่น";
+            controlFoods.Pnumber = "2023001";
+            controlFoods.Pname = "หมูสไลด์";
             controlFoods.Pbalance = "49";
             this.Controls.Add(controlFoods);
 
@@ -508,7 +522,7 @@ namespace projectfastfood
                 dataGridViewOrders.Rows[rowIndex].Cells["Column4"].Value = controlFoods.Pbalance;
                 dataGridViewOrders.Rows[rowIndex].Cells["Column5"].Value = "1";
                 decimal price = Convert.ToDecimal(controlFoods.Pbalance.Replace("$", ""));
-               
+
 
 
             }
@@ -519,7 +533,7 @@ namespace projectfastfood
             {
                 if (row.Cells["Column4"].Value != null)
                 {
-                    decimal price = Convert.ToDecimal(row.Cells["Column4"].Value.ToString().Replace("฿",""));
+                    decimal price = Convert.ToDecimal(row.Cells["Column4"].Value.ToString().Replace("฿", ""));
                     int quantity = Convert.ToInt32(row.Cells["Column5"].Value);
                     total += (price * quantity);
                 }
@@ -538,24 +552,249 @@ namespace projectfastfood
             Listorder.Text = total1.ToString();
         }
 
-        private void TboxAmount_TextChanged(object sender, EventArgs e)
+        private void mn2_Click(object sender, EventArgs e)
         {
-            try
+            ControlFoods controlFoods = new ControlFoods();
+            controlFoods.Pnumber = "2023004";
+            controlFoods.Pname = "กู้ง";
+            controlFoods.Pbalance = "50";
+            this.Controls.Add(controlFoods);
+
+            string pNumber = controlFoods.Pnumber;
+            bool found = false;
+            foreach (DataGridViewRow row in dataGridViewOrders.Rows)
             {
-                decimal total = Convert.ToDecimal(TboxTotle.Text.Replace(",", "").Replace("฿", ""));
-                decimal amount = Convert.ToDecimal(TboxAmount.Text.Replace(",", ""));
-                TboxBalance.Text = (amount - total).ToString("#,##0.00");
+                if (row.Cells["Column2"].Value != null && row.Cells["Column2"].Value.ToString() == pNumber)
+                {
+                    int currentValue = Convert.ToInt32(row.Cells["Column5"].Value);
+                    row.Cells["Column5"].Value = (currentValue + 1).ToString();
+                    found = true;
+                    break;
+                }
             }
-            catch (Exception ex)
+
+
+            if (!found)
             {
+                int rowIndex = dataGridViewOrders.Rows.Add();
+                dataGridViewOrders.Rows[rowIndex].Cells["Column2"].Value = controlFoods.Pnumber;
+                dataGridViewOrders.Rows[rowIndex].Cells["Column3"].Value = controlFoods.Pname;
+                dataGridViewOrders.Rows[rowIndex].Cells["Column4"].Value = controlFoods.Pbalance;
+                dataGridViewOrders.Rows[rowIndex].Cells["Column5"].Value = "1";
+                decimal price = Convert.ToDecimal(controlFoods.Pbalance.Replace("$", ""));
+
+
 
             }
+
+            decimal total = 0;
+
+            foreach (DataGridViewRow row in dataGridViewOrders.Rows)
+            {
+                if (row.Cells["Column4"].Value != null)
+                {
+                    decimal price = Convert.ToDecimal(row.Cells["Column4"].Value.ToString().Replace("฿", ""));
+                    int quantity = Convert.ToInt32(row.Cells["Column5"].Value);
+                    total += (price * quantity);
+                }
+            }
+
+            TboxTotle.Text = total.ToString("C");
+
+            int total1 = 0;
+            foreach (DataGridViewRow row in dataGridViewOrders.Rows)
+            {
+                if (row.Cells["Column5"].Value != null)
+                {
+                    total1 += Convert.ToInt32(row.Cells["Column5"].Value);
+                }
+            }
+            Listorder.Text = total1.ToString();
         }
 
-
-        private void TboxBalance_TextChanged(object sender, EventArgs e)
+        private void mn3_Click(object sender, EventArgs e)
         {
+            ControlFoods controlFoods = new ControlFoods();
+            controlFoods.Pnumber = "2023010";
+            controlFoods.Pname = "ผักรวม";
+            controlFoods.Pbalance = "30";
+            this.Controls.Add(controlFoods);
 
+            string pNumber = controlFoods.Pnumber;
+            bool found = false;
+            foreach (DataGridViewRow row in dataGridViewOrders.Rows)
+            {
+                if (row.Cells["Column2"].Value != null && row.Cells["Column2"].Value.ToString() == pNumber)
+                {
+                    int currentValue = Convert.ToInt32(row.Cells["Column5"].Value);
+                    row.Cells["Column5"].Value = (currentValue + 1).ToString();
+                    found = true;
+                    break;
+                }
+            }
+
+
+            if (!found)
+            {
+                int rowIndex = dataGridViewOrders.Rows.Add();
+                dataGridViewOrders.Rows[rowIndex].Cells["Column2"].Value = controlFoods.Pnumber;
+                dataGridViewOrders.Rows[rowIndex].Cells["Column3"].Value = controlFoods.Pname;
+                dataGridViewOrders.Rows[rowIndex].Cells["Column4"].Value = controlFoods.Pbalance;
+                dataGridViewOrders.Rows[rowIndex].Cells["Column5"].Value = "1";
+                decimal price = Convert.ToDecimal(controlFoods.Pbalance.Replace("$", ""));
+
+
+
+            }
+
+            decimal total = 0;
+
+            foreach (DataGridViewRow row in dataGridViewOrders.Rows)
+            {
+                if (row.Cells["Column4"].Value != null)
+                {
+                    decimal price = Convert.ToDecimal(row.Cells["Column4"].Value.ToString().Replace("฿", ""));
+                    int quantity = Convert.ToInt32(row.Cells["Column5"].Value);
+                    total += (price * quantity);
+                }
+            }
+
+            TboxTotle.Text = total.ToString("C");
+
+            int total1 = 0;
+            foreach (DataGridViewRow row in dataGridViewOrders.Rows)
+            {
+                if (row.Cells["Column5"].Value != null)
+                {
+                    total1 += Convert.ToInt32(row.Cells["Column5"].Value);
+                }
+            }
+            Listorder.Text = total1.ToString();
+        }
+
+        private void mn4_Click(object sender, EventArgs e)
+        {
+            ControlFoods controlFoods = new ControlFoods();
+            controlFoods.Pnumber = "2023015";
+            controlFoods.Pname = "น้ำเปล่า";
+            controlFoods.Pbalance = "15";
+            this.Controls.Add(controlFoods);
+
+            string pNumber = controlFoods.Pnumber;
+            bool found = false;
+            foreach (DataGridViewRow row in dataGridViewOrders.Rows)
+            {
+                if (row.Cells["Column2"].Value != null && row.Cells["Column2"].Value.ToString() == pNumber)
+                {
+                    int currentValue = Convert.ToInt32(row.Cells["Column5"].Value);
+                    row.Cells["Column5"].Value = (currentValue + 1).ToString();
+                    found = true;
+                    break;
+                }
+            }
+
+
+            if (!found)
+            {
+                int rowIndex = dataGridViewOrders.Rows.Add();
+                dataGridViewOrders.Rows[rowIndex].Cells["Column2"].Value = controlFoods.Pnumber;
+                dataGridViewOrders.Rows[rowIndex].Cells["Column3"].Value = controlFoods.Pname;
+                dataGridViewOrders.Rows[rowIndex].Cells["Column4"].Value = controlFoods.Pbalance;
+                dataGridViewOrders.Rows[rowIndex].Cells["Column5"].Value = "1";
+                decimal price = Convert.ToDecimal(controlFoods.Pbalance.Replace("$", ""));
+
+
+
+            }
+
+            decimal total = 0;
+
+            foreach (DataGridViewRow row in dataGridViewOrders.Rows)
+            {
+                if (row.Cells["Column4"].Value != null)
+                {
+                    decimal price = Convert.ToDecimal(row.Cells["Column4"].Value.ToString().Replace("฿", ""));
+                    int quantity = Convert.ToInt32(row.Cells["Column5"].Value);
+                    total += (price * quantity);
+                }
+            }
+
+            TboxTotle.Text = total.ToString("C");
+
+            int total1 = 0;
+            foreach (DataGridViewRow row in dataGridViewOrders.Rows)
+            {
+                if (row.Cells["Column5"].Value != null)
+                {
+                    total1 += Convert.ToInt32(row.Cells["Column5"].Value);
+                }
+            }
+            Listorder.Text = total1.ToString();
+        }
+
+        private void mn5_Click(object sender, EventArgs e)
+        {
+            ControlFoods controlFoods = new ControlFoods();
+            controlFoods.Pnumber = "2023016";
+            controlFoods.Pname = "น้ำโค้ก";
+            controlFoods.Pbalance = "25";
+            this.Controls.Add(controlFoods);
+
+            string pNumber = controlFoods.Pnumber;
+            bool found = false;
+            foreach (DataGridViewRow row in dataGridViewOrders.Rows)
+            {
+                if (row.Cells["Column2"].Value != null && row.Cells["Column2"].Value.ToString() == pNumber)
+                {
+                    int currentValue = Convert.ToInt32(row.Cells["Column5"].Value);
+                    row.Cells["Column5"].Value = (currentValue + 1).ToString();
+                    found = true;
+                    break;
+                }
+            }
+
+
+            if (!found)
+            {
+                int rowIndex = dataGridViewOrders.Rows.Add();
+                dataGridViewOrders.Rows[rowIndex].Cells["Column2"].Value = controlFoods.Pnumber;
+                dataGridViewOrders.Rows[rowIndex].Cells["Column3"].Value = controlFoods.Pname;
+                dataGridViewOrders.Rows[rowIndex].Cells["Column4"].Value = controlFoods.Pbalance;
+                dataGridViewOrders.Rows[rowIndex].Cells["Column5"].Value = "1";
+                decimal price = Convert.ToDecimal(controlFoods.Pbalance.Replace("$", ""));
+
+
+
+            }
+
+            decimal total = 0;
+
+            foreach (DataGridViewRow row in dataGridViewOrders.Rows)
+            {
+                if (row.Cells["Column4"].Value != null)
+                {
+                    decimal price = Convert.ToDecimal(row.Cells["Column4"].Value.ToString().Replace("฿", ""));
+                    int quantity = Convert.ToInt32(row.Cells["Column5"].Value);
+                    total += (price * quantity);
+                }
+            }
+
+            TboxTotle.Text = total.ToString("C");
+
+            int total1 = 0;
+            foreach (DataGridViewRow row in dataGridViewOrders.Rows)
+            {
+                if (row.Cells["Column5"].Value != null)
+                {
+                    total1 += Convert.ToInt32(row.Cells["Column5"].Value);
+                }
+            }
+            Listorder.Text = total1.ToString();
+        }
+
+        private void mnclear_Click(object sender, EventArgs e)
+        {
+            new_order();
         }
 
         private void Account()
