@@ -76,10 +76,8 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panelOrder = new System.Windows.Forms.Panel();
             this.panelOrders = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnNeworder = new System.Windows.Forms.Button();
             this.Tboxtable = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -96,13 +94,12 @@
             this.TboxAmount = new System.Windows.Forms.TextBox();
             this.pnlOrderlist = new System.Windows.Forms.Panel();
             this.dataGridViewOrders = new System.Windows.Forms.DataGridView();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.panelLeaft.SuspendLayout();
             this.panelAct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roundPictureBox1)).BeginInit();
@@ -110,6 +107,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelOrder.SuspendLayout();
             this.panelOrders.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelAmount.SuspendLayout();
             this.pnlOrderlist.SuspendLayout();
@@ -665,10 +663,8 @@
             // 
             // panelOrders
             // 
+            this.panelOrders.Controls.Add(this.pictureBox2);
             this.panelOrders.Controls.Add(this.pictureBox1);
-            this.panelOrders.Controls.Add(this.button3);
-            this.panelOrders.Controls.Add(this.button1);
-            this.panelOrders.Controls.Add(this.btnNeworder);
             this.panelOrders.Controls.Add(this.Tboxtable);
             this.panelOrders.Controls.Add(this.label4);
             this.panelOrders.Controls.Add(this.flowLayoutPanel1);
@@ -680,6 +676,16 @@
             this.panelOrders.Size = new System.Drawing.Size(1368, 900);
             this.panelOrders.TabIndex = 19;
             this.panelOrders.Paint += new System.Windows.Forms.PaintEventHandler(this.panelOrders_Paint);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.pictureBox2.Location = new System.Drawing.Point(74, 53);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(48, 46);
+            this.pictureBox2.TabIndex = 25;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // pictureBox1
             // 
@@ -693,38 +699,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 24;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(117, 58);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(46, 40);
-            this.button3.TabIndex = 23;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(65, 58);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(46, 40);
-            this.button1.TabIndex = 22;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnNeworder
-            // 
-            this.btnNeworder.BackColor = System.Drawing.Color.Transparent;
-            this.btnNeworder.BackgroundImage = global::projectfastfood.Properties.Resources.sent;
-            this.btnNeworder.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnNeworder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNeworder.Image = global::projectfastfood.Properties.Resources.upermarket;
-            this.btnNeworder.Location = new System.Drawing.Point(201, 53);
-            this.btnNeworder.Name = "btnNeworder";
-            this.btnNeworder.Size = new System.Drawing.Size(50, 42);
-            this.btnNeworder.TabIndex = 21;
-            this.btnNeworder.UseVisualStyleBackColor = false;
             // 
             // Tboxtable
             // 
@@ -823,6 +797,7 @@
             this.TboxBalance.Size = new System.Drawing.Size(193, 38);
             this.TboxBalance.TabIndex = 13;
             this.TboxBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TboxBalance.TextChanged += new System.EventHandler(this.TboxBalance_TextChanged);
             // 
             // TboxTotle
             // 
@@ -835,6 +810,7 @@
             this.TboxTotle.TabIndex = 11;
             this.TboxTotle.Text = "0 ฿";
             this.TboxTotle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TboxTotle.TextChanged += new System.EventHandler(this.TboxTotle_TextChanged);
             // 
             // Listorder
             // 
@@ -914,8 +890,7 @@
             this.Column2,
             this.Column3,
             this.Column4,
-            this.Column5,
-            this.Column6});
+            this.Column5});
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -930,49 +905,9 @@
             this.dataGridViewOrders.RowHeadersVisible = false;
             this.dataGridViewOrders.RowHeadersWidth = 51;
             this.dataGridViewOrders.RowTemplate.Height = 24;
-            this.dataGridViewOrders.Size = new System.Drawing.Size(528, 477);
+            this.dataGridViewOrders.Size = new System.Drawing.Size(522, 477);
             this.dataGridViewOrders.TabIndex = 0;
             this.dataGridViewOrders.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewOrders_CellContentClick);
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "OrderID";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 120;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "OrderName";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 130;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Balance";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 80;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Order";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 80;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Totel";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 115;
             // 
             // textBox2
             // 
@@ -997,6 +932,38 @@
             this.label8.Size = new System.Drawing.Size(213, 69);
             this.label8.TabIndex = 1;
             this.label8.Text = "Orders";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "OrderID";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 120;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "OrderName";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 130;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Balance";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 150;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Order";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 115;
             // 
             // Formmain
             // 
@@ -1025,6 +992,7 @@
             this.panelOrder.PerformLayout();
             this.panelOrders.ResumeLayout(false);
             this.panelOrders.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelAmount.ResumeLayout(false);
             this.panelAmount.PerformLayout();
@@ -1094,20 +1062,17 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox Tboxtable;
-        private System.Windows.Forms.Button btnNeworder;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox Number;
         private System.Windows.Forms.TextBox name;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label5;
         private RoundPictureBox roundPictureBox1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

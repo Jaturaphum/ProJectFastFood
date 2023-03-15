@@ -134,24 +134,7 @@ namespace projectfastfood
             }
         }
 
-        private void TboxAmount_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                double grandtotal = 0;
-                for (int i = 0; i < dataGridViewOrders.Rows.Count; i++)
-                {
-                    grandtotal += Convert.ToDouble(dataGridViewOrders.Rows[i].Cells[5].Value);
-                }
-                TboxBalance.Text = (Convert.ToDecimal(TboxAmount.Text) - Convert.ToDecimal(grandtotal)).ToString("#,##0.00");
-
-            }
-            catch (Exception ex)
-            {
-
-            }
-        }
-
+      
         private void Get_grandTotal()
         {
             try
@@ -441,42 +424,6 @@ namespace projectfastfood
             Load_Items();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ControlFoods controlFoods = new ControlFoods();
-            controlFoods.Pnumber = "1";
-            controlFoods.Pname = "Burger";
-            controlFoods.Pbalance = "$5.00";
-
-            bool found = false;
-            foreach (DataGridViewRow row in dataGridViewOrders.Rows)
-            {
-                if (row.Cells["OrderID"].Value != null && row.Cells["OrderID"].Value.ToString() == controlFoods.Pnumber)
-                {
-                    // if the Pnumber exists, update the Order and Total columns
-                    row.Cells["Order"].Value = int.Parse(row.Cells["Order"].Value.ToString()) + 1;
-                    row.Cells["Total"].Value = string.Format("{0:C}", decimal.Parse(row.Cells["Total"].Value.ToString().Replace("$", "")) + decimal.Parse(controlFoods.Pbalance.Replace("$", "")));
-                    found = true;
-                    break;
-                    
-                }
-            }
-            if (!found)
-            {
-                
-                int rowIndex = dataGridViewOrders.Rows.Add();
-                DataGridViewRow row = dataGridViewOrders.Rows[rowIndex];
-                row.Cells["OrderID"].Value = controlFoods.Pnumber;
-                row.Cells["OrderName"].Value = controlFoods.Pname;
-                
-                row.Cells["Balance"].Value = controlFoods.Pbalance;
-                row.Cells["Order"].Value = 1;
-                row.Cells["Total"].Value = controlFoods.Pbalance;
-            }
-        }
-
-
-
         private void btnOrder_Click(object sender, EventArgs e)
         {
             pnlPosition.Height = btnOrder.Height;
@@ -522,12 +469,21 @@ namespace projectfastfood
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void TboxTotle_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            new_order();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
         {
             ControlFoods controlFoods = new ControlFoods();
             controlFoods.Pnumber = "20230022";
             controlFoods.Pname = "เนื้อเเผ่น";
-            controlFoods.Pbalance = "$49.00";
+            controlFoods.Pbalance = "49";
             this.Controls.Add(controlFoods);
 
             string pNumber = controlFoods.Pnumber;
@@ -543,6 +499,7 @@ namespace projectfastfood
                 }
             }
 
+
             if (!found)
             {
                 int rowIndex = dataGridViewOrders.Rows.Add();
@@ -551,13 +508,54 @@ namespace projectfastfood
                 dataGridViewOrders.Rows[rowIndex].Cells["Column4"].Value = controlFoods.Pbalance;
                 dataGridViewOrders.Rows[rowIndex].Cells["Column5"].Value = "1";
                 decimal price = Convert.ToDecimal(controlFoods.Pbalance.Replace("$", ""));
-                dataGridViewOrders.Rows[rowIndex].Cells["Column6"].Value = price.ToString("C");
+               
+
+
+            }
+
+            decimal total = 0;
+
+            foreach (DataGridViewRow row in dataGridViewOrders.Rows)
+            {
+                if (row.Cells["Column4"].Value != null)
+                {
+                    decimal price = Convert.ToDecimal(row.Cells["Column4"].Value.ToString().Replace("฿",""));
+                    int quantity = Convert.ToInt32(row.Cells["Column5"].Value);
+                    total += (price * quantity);
+                }
+            }
+
+            TboxTotle.Text = total.ToString("C");
+
+            int total1 = 0;
+            foreach (DataGridViewRow row in dataGridViewOrders.Rows)
+            {
+                if (row.Cells["Column5"].Value != null)
+                {
+                    total1 += Convert.ToInt32(row.Cells["Column5"].Value);
+                }
+            }
+            Listorder.Text = total1.ToString();
+        }
+
+        private void TboxAmount_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                decimal total = Convert.ToDecimal(TboxTotle.Text.Replace(",", "").Replace("฿", ""));
+                decimal amount = Convert.ToDecimal(TboxAmount.Text.Replace(",", ""));
+                TboxBalance.Text = (amount - total).ToString("#,##0.00");
+            }
+            catch (Exception ex)
+            {
+
             }
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+
+        private void TboxBalance_TextChanged(object sender, EventArgs e)
         {
-            new_order();
+
         }
 
         private void Account()
