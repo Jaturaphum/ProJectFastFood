@@ -17,15 +17,21 @@ using System.Drawing;
 using System.Windows.Controls;
 using Image = System.Drawing.Image;
 using System.Data.SqlClient;
+using System.Reflection.Emit;
 
 
 namespace projectfastfood
 {
     public partial class Formmain : Form
     {
-        public Formmain()
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public Formmain(string username, string password)
         {
             InitializeComponent();
+            this.Username = username;
+            this.Password = password;
+
         }
 
         string ConnectionString = "server=localhost;user=root;password=;port=3306;database=fastfood_db";
@@ -48,7 +54,6 @@ namespace projectfastfood
                     {
                         controlFoods.PImage = Image.FromStream(ms);
                     }
-
                     flowLayoutPanel1.Controls.Add(controlFoods);
                 }
                 reader.Close();
@@ -165,33 +170,6 @@ namespace projectfastfood
             }
         }
 
-        private void TboxSearch_TextChanged(object sender, EventArgs e)
-        {
-            using (MySqlConnection connection = new MySqlConnection(ConnectionString))
-            {
-                connection.Open();
-                MySqlCommand command = new MySqlCommand("SELECT order_num, order_name, balance,order_img FROM orders_db WHERE order_num LIKE @Search OR order_name LIKE @Search", connection);
-                command.Parameters.AddWithValue("@Search", "%" + TboxSearch.Text + "%");
-
-                MySqlDataReader reader = command.ExecuteReader();
-                flowLayoutPanel1.Controls.Clear();
-
-                while (reader.Read())
-                {
-                    ControlFoods resultLabel = new ControlFoods();
-                    resultLabel.Text = "" + reader["order_num"].ToString() + "\n" +
-                                       "" + reader["order_name"].ToString() + "\n" +
-                                       "" + reader["balance"].ToString();
-
-                    resultLabel.AutoSize = true;
-
-                    flowLayoutPanel1.Controls.Add(resultLabel);
-                }
-                reader.Close();
-                connection.Close();
-            }
-        }
-
         private void btnLogout_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("ต้องการออกจากระบบหรือไม่?", "ยืนยันการออกจากระบบ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -200,12 +178,13 @@ namespace projectfastfood
             {
                 MySqlConnection connection = new MySqlConnection(ConnectionString);
                 connection.Close();
+                this.Hide();
                 string message = "ได้ทำการออกจากระบบแล้ว";
                 MessageBox.Show(message);
 
                 Formlogin FormLogout = new Formlogin();
                 FormLogout.Show();
-                this.Hide();
+                
             }
         }
 
@@ -451,6 +430,8 @@ namespace projectfastfood
             panelOrders.Visible = false;
             panelOrder.Visible = false;
             panelAct.Visible = true;
+
+            Account();
         }
 
         private void panelOrders_Paint(object sender, PaintEventArgs e)
@@ -464,6 +445,40 @@ namespace projectfastfood
         {
             new_order();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ControlFoods controlFoods = new ControlFoods();
+            controlFoods.Pnumber = "1";
+            controlFoods.Pname = "Burger";
+            controlFoods.Pbalance = "$5.00";
+
+            bool found = false;
+            foreach (DataGridViewRow row in dataGridViewOrders.Rows)
+            {
+                if (row.Cells["OrderID"].Value != null && row.Cells["OrderID"].Value.ToString() == controlFoods.Pnumber)
+                {
+                    // if the Pnumber exists, update the Order and Total columns
+                    row.Cells["Order"].Value = int.Parse(row.Cells["Order"].Value.ToString()) + 1;
+                    row.Cells["Total"].Value = string.Format("{0:C}", decimal.Parse(row.Cells["Total"].Value.ToString().Replace("$", "")) + decimal.Parse(controlFoods.Pbalance.Replace("$", "")));
+                    found = true;
+                    break;
+                }
+            }
+            if (!found)
+            {
+                int rowIndex = dataGridViewOrders.Rows.Add();
+                DataGridViewRow row = dataGridViewOrders.Rows[rowIndex];
+                row.Cells["OrderID"].Value = controlFoods.Pnumber;
+                row.Cells["OrderName"].Value = controlFoods.Pname;
+                row.Cells["Balance"].Value = controlFoods.Pbalance;
+                row.Cells["Order"].Value = 1;
+                row.Cells["Total"].Value = controlFoods.Pbalance;
+            }
+        }
+
+
+
         private void btnOrder_Click(object sender, EventArgs e)
         {
             pnlPosition.Height = btnOrder.Height;
@@ -472,6 +487,62 @@ namespace projectfastfood
             panelOrders.Visible = false;
             panelOrder.Visible = true;
             panelAct.Visible = false;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog pop = new OpenFileDialog();
+            if (pop.ShowDialog() != DialogResult.Cancel)
+            {
+
+                roundPictureBox1.Image = Image.FromFile(pop.FileName);
+                byte[] imgData = File.ReadAllBytes(pop.FileName);
+
+
+                string query = "UPDATE  user_db SET user_img = @ImageData WHERE password = @pass";
+
+                MySqlConnection conn = new MySqlConnection(ConnectionString);
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@ImageData", imgData);
+                cmd.Parameters.AddWithValue("@pass", this.Password);
+
+                conn.Open();
+
+                cmd.ExecuteNonQuery();
+
+                conn.Close();
+            }
+        }
+
+        private void Account()
+        {
+            string query = "SELECT * FROM user_db WHERE user_name = @name AND password = @pass";
+            MySqlConnection conn = new MySqlConnection(ConnectionString);
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@name", this.Username);
+            cmd.Parameters.AddWithValue("@pass", this.Password);
+
+            conn.Open();
+
+            MySqlDataReader reader = cmd.ExecuteReader();
+            
+                while (reader.Read())
+               { 
+                this.name.Text = this.Username;
+                this.Number.Text = reader["user_num"].ToString();
+                byte[] imgData = (byte[])reader["user_img"];
+
+                if (imgData != null && imgData.Length > 0)
+                {
+
+                    MemoryStream ms = new MemoryStream(imgData);
+
+                    roundPictureBox1.Image = Image.FromStream(ms); ;
+                }
+            }
+
+            reader.Close();
+            conn.Close();
         }
     }
 }

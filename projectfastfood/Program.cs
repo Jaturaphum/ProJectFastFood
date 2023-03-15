@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,7 +17,14 @@ namespace projectfastfood
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Formmain());
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.EnableVisualStyles();
+          
+            Application.Run(new Formlogin());
+
+               
+
+            
         }
     }
 }

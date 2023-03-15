@@ -33,6 +33,7 @@
             this.lblname = new System.Windows.Forms.Label();
             this.lblbalance = new System.Windows.Forms.Label();
             this.roundImage = new projectfastfood.RoundPictureBox();
+            this.btnpick = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roundImage)).BeginInit();
             this.SuspendLayout();
@@ -44,6 +45,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnpick);
             this.panel1.Controls.Add(this.lblnumber);
             this.panel1.Controls.Add(this.lblname);
             this.panel1.Controls.Add(this.lblbalance);
@@ -106,6 +108,15 @@
             this.roundImage.TabIndex = 0;
             this.roundImage.TabStop = false;
             // 
+            // btnpick
+            // 
+            this.btnpick.Location = new System.Drawing.Point(300, 68);
+            this.btnpick.Name = "btnpick";
+            this.btnpick.Size = new System.Drawing.Size(75, 36);
+            this.btnpick.TabIndex = 4;
+            this.btnpick.Text = "Pick";
+            this.btnpick.UseVisualStyleBackColor = true;
+            // 
             // ControlFoods
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -127,5 +138,6 @@
         private System.Windows.Forms.Label lblbalance;
         private System.Windows.Forms.Label lblname;
         private System.Windows.Forms.Label lblnumber;
+        private System.Windows.Forms.Button btnpick;
     }
 }

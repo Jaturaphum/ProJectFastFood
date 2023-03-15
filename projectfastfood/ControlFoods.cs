@@ -18,6 +18,7 @@ namespace projectfastfood
         {
             InitializeComponent();
         }
+
         public string Pnumber
         {
             get { return lblnumber.Text; }
@@ -28,7 +29,6 @@ namespace projectfastfood
             get { return lblname.Text; }
             set { lblname.Text = value; }
         }
-
         public string Pbalance
         {
             get { return lblbalance.Text; }
@@ -40,5 +40,10 @@ namespace projectfastfood
             set { roundImage.Image = value; }
         }
 
+        public Button Btnpick
+        {
+            get { return btnpick; }
+            set { btnpick = value; }
+        }
     }
 }

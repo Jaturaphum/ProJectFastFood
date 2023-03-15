@@ -44,7 +44,7 @@ namespace projectfastfood
 
                 if (count > 0)
                 {
-                    Formmain formmain = new Formmain();
+                    Formmain formmain = new Formmain(GetUsername(), GetPassword());
                     formmain.Show();
                     this.Hide();
                     MessageBox.Show("ได้ทำการล็อกอินสำเร็จแล้ว");
@@ -67,6 +67,15 @@ namespace projectfastfood
             {
                 conn.Close();
             }
+        }
+        public string GetUsername()
+        {
+            return Tboxuser.Text;
+        }
+
+        public string GetPassword()
+        {
+            return Tboxpass.Text;
         }
 
 
