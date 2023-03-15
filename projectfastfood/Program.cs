@@ -17,9 +17,7 @@ namespace projectfastfood
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.SetCompatibleTextRenderingDefault(false);
             Application.EnableVisualStyles();
-          
             Application.Run(new Formlogin());
 
                
