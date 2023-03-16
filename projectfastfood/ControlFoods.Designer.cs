@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.lblnumber = new System.Windows.Forms.Label();
             this.lblname = new System.Windows.Forms.Label();
             this.lblbalance = new System.Windows.Forms.Label();
             this.roundImage = new projectfastfood.RoundPictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roundImage)).BeginInit();
             this.SuspendLayout();
@@ -55,6 +55,15 @@
             this.panel1.Size = new System.Drawing.Size(393, 144);
             this.panel1.TabIndex = 0;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(304, 66);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 37);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Pick";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // lblnumber
             // 
             this.lblnumber.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -62,7 +71,7 @@
             this.lblnumber.AutoSize = true;
             this.lblnumber.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lblnumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblnumber.Location = new System.Drawing.Point(305, 13);
+            this.lblnumber.Location = new System.Drawing.Point(300, 13);
             this.lblnumber.Name = "lblnumber";
             this.lblnumber.Size = new System.Drawing.Size(79, 20);
             this.lblnumber.TabIndex = 1;
@@ -76,7 +85,7 @@
             this.lblname.AutoSize = true;
             this.lblname.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lblname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblname.Location = new System.Drawing.Point(315, 44);
+            this.lblname.Location = new System.Drawing.Point(318, 43);
             this.lblname.Name = "lblname";
             this.lblname.Size = new System.Drawing.Size(61, 20);
             this.lblname.TabIndex = 2;
@@ -90,7 +99,7 @@
             this.lblbalance.AutoSize = true;
             this.lblbalance.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lblbalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblbalance.Location = new System.Drawing.Point(303, 107);
+            this.lblbalance.Location = new System.Drawing.Point(306, 106);
             this.lblbalance.Name = "lblbalance";
             this.lblbalance.Size = new System.Drawing.Size(73, 20);
             this.lblbalance.TabIndex = 3;
@@ -107,15 +116,6 @@
             this.roundImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.roundImage.TabIndex = 0;
             this.roundImage.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(301, 67);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 37);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Pick";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // ControlFoods
             // 
