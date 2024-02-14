@@ -9,9 +9,9 @@ namespace projectfastfood
 {
     internal static class Program
     {
-         ///<บทสรุป>
+         ///<เรื่มต้นการทำงานโปรเเกรม>
          /// จุดเริ่มต้นของการเขียนเเอพพิเคชั่น
-         ///</สรุป>
+         ///</จบการทำงานโปรเเกรม>
         [STAThread]
         static void Main()
         {

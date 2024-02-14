@@ -48,6 +48,7 @@ namespace projectfastfood
         private void btnSignin_Click(object sender, EventArgs e)
         {
             MySqlConnection conn = new MySqlConnection(connString);
+            string usernum = Tboxid.Text;
             string username = Tboxuser.Text;
             string password1 = Tboxpass1.Text;
             string password2 = Tboxpass2.Text;
@@ -73,8 +74,9 @@ namespace projectfastfood
                 MessageBox.Show("มีผู้ใช้งานนี้อยู่เเล้ว");
                 return;
             }
-            string sqlInsert = "INSERT INTO user_db (user_name, password) VALUES (@username, @password)";
+            string sqlInsert = "INSERT INTO user_db (user_num, user_name, password) VALUES (@usernum, @username, @password)";
             MySqlCommand command = new MySqlCommand(sqlInsert, conn);
+            command.Parameters.AddWithValue("@usernum", usernum);
             command.Parameters.AddWithValue("@username", username);
             command.Parameters.AddWithValue("@password", password1);
             command.ExecuteNonQuery();

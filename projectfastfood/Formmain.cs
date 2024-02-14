@@ -18,7 +18,7 @@ using System.Windows.Controls;
 using Image = System.Drawing.Image;
 using System.Data.SqlClient;
 using System.Reflection.Emit;
-
+using System.Diagnostics.Eventing.Reader;
 
 namespace projectfastfood
 {
@@ -108,6 +108,7 @@ namespace projectfastfood
                 MessageBox.Show("ได้ทำการชำระออเดอร์เเล้ว", "ข้อความ");
                 new_order();
             }
+            Tboxtable.Clear();
         }
 
 
@@ -177,14 +178,25 @@ namespace projectfastfood
             if (btn1.BackColor == Color.LawnGreen)
             {
                 if (MessageBox.Show("คุณต้องการจะจองโต๊ะใช่หรือไม่?", "Message", MessageBoxButtons.OKCancel)
-                    == DialogResult.OK) btn1.BackColor = Color.Red;
+                    == DialogResult.OK)
+                {
+                    btn1.BackColor = Color.Red;
+                    Tboxtable.Text = "Table 1";
+                }
             }
             else
             {
                 if (MessageBox.Show("คุณต้องการจะจองโต๊ะใช่หรือไม่?", "Message", MessageBoxButtons.OKCancel)
-                    == DialogResult.OK) btn1.BackColor = Color.LawnGreen;
+                    == DialogResult.OK)
+                {
+                    btn1.BackColor = Color.LawnGreen;
+                    Tboxtable.Text = "";
+                }
             }
         }
+
+
+
         private void btn2_Click(object sender, EventArgs e)
         {
             if (btn2.BackColor == Color.LawnGreen)
@@ -436,29 +448,7 @@ namespace projectfastfood
 
         private void button2_Click(object sender, EventArgs e)
         {
-            OpenFileDialog pop = new OpenFileDialog();
-            if (pop.ShowDialog() != DialogResult.Cancel)
-            {
-
-                roundPictureBox1.Image = Image.FromFile(pop.FileName);
-                byte[] imgData = File.ReadAllBytes(pop.FileName);
-
-
-                string query = "UPDATE  user_db SET user_img = @ImageData WHERE password = @pass AND user_name = @name";
-
-                MySqlConnection conn = new MySqlConnection(ConnectionString);
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@ImageData", imgData);
-                cmd.Parameters.AddWithValue("@name", this.Username);
-                cmd.Parameters.AddWithValue("@pass", this.Password);
-
-                conn.Open();
-
-                cmd.ExecuteNonQuery();
-
-                conn.Close();
-                
-            }
+            
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -1073,6 +1063,33 @@ namespace projectfastfood
                 }
             }
             Listorder.Text = total1.ToString();
+        }
+
+        private void roundPictureBox1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog pop = new OpenFileDialog();
+            if (pop.ShowDialog() != DialogResult.Cancel)
+            {
+
+                roundPictureBox1.Image = Image.FromFile(pop.FileName);
+                byte[] imgData = File.ReadAllBytes(pop.FileName);
+
+
+                string query = "UPDATE  user_db SET user_img = @ImageData WHERE password = @pass AND user_name = @name";
+
+                MySqlConnection conn = new MySqlConnection(ConnectionString);
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@ImageData", imgData);
+                cmd.Parameters.AddWithValue("@name", this.Username);
+                cmd.Parameters.AddWithValue("@pass", this.Password);
+
+                conn.Open();
+
+                cmd.ExecuteNonQuery();
+
+                conn.Close();
+
+            }
         }
 
         private void Account()

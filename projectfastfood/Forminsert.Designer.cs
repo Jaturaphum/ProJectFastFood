@@ -56,8 +56,9 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(-1, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(562, 55);
+            this.panel1.Size = new System.Drawing.Size(422, 45);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -65,9 +66,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label1.Location = new System.Drawing.Point(186, 8);
+            this.label1.Location = new System.Drawing.Point(125, 8);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(202, 32);
+            this.label1.Size = new System.Drawing.Size(163, 26);
             this.label1.TabIndex = 14;
             this.label1.Text = "ADDORDERS";
             // 
@@ -75,9 +77,10 @@
             // 
             this.pictureBox1.BackgroundImage = global::projectfastfood.Properties.Resources.close1;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(502, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(376, 3);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(55, 46);
+            this.pictureBox1.Size = new System.Drawing.Size(41, 37);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -86,19 +89,22 @@
             // 
             this.TboxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TboxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TboxSearch.Location = new System.Drawing.Point(161, 82);
+            this.TboxSearch.Location = new System.Drawing.Point(121, 67);
+            this.TboxSearch.Margin = new System.Windows.Forms.Padding(2);
             this.TboxSearch.Name = "TboxSearch";
-            this.TboxSearch.Size = new System.Drawing.Size(214, 34);
+            this.TboxSearch.Size = new System.Drawing.Size(161, 28);
             this.TboxSearch.TabIndex = 2;
+            this.TboxSearch.TextChanged += new System.EventHandler(this.TboxSearch_TextChanged);
             // 
             // bnlFood
             // 
             this.bnlFood.AutoSize = true;
             this.bnlFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bnlFood.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.bnlFood.Location = new System.Drawing.Point(234, 224);
+            this.bnlFood.Location = new System.Drawing.Point(176, 182);
+            this.bnlFood.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.bnlFood.Name = "bnlFood";
-            this.bnlFood.Size = new System.Drawing.Size(89, 32);
+            this.bnlFood.Size = new System.Drawing.Size(71, 26);
             this.bnlFood.TabIndex = 4;
             this.bnlFood.Text = "Name";
             // 
@@ -106,18 +112,20 @@
             // 
             this.TboxOrder_name.BackColor = System.Drawing.Color.White;
             this.TboxOrder_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TboxOrder_name.Location = new System.Drawing.Point(240, 260);
+            this.TboxOrder_name.Location = new System.Drawing.Point(180, 211);
+            this.TboxOrder_name.Margin = new System.Windows.Forms.Padding(2);
             this.TboxOrder_name.Name = "TboxOrder_name";
-            this.TboxOrder_name.Size = new System.Drawing.Size(185, 34);
+            this.TboxOrder_name.Size = new System.Drawing.Size(140, 28);
             this.TboxOrder_name.TabIndex = 5;
             // 
             // TboxBalance
             // 
             this.TboxBalance.BackColor = System.Drawing.Color.White;
             this.TboxBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TboxBalance.Location = new System.Drawing.Point(240, 337);
+            this.TboxBalance.Location = new System.Drawing.Point(180, 274);
+            this.TboxBalance.Margin = new System.Windows.Forms.Padding(2);
             this.TboxBalance.Name = "TboxBalance";
-            this.TboxBalance.Size = new System.Drawing.Size(185, 34);
+            this.TboxBalance.Size = new System.Drawing.Size(140, 28);
             this.TboxBalance.TabIndex = 7;
             // 
             // BalanceFood
@@ -125,9 +133,10 @@
             this.BalanceFood.AutoSize = true;
             this.BalanceFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BalanceFood.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.BalanceFood.Location = new System.Drawing.Point(234, 301);
+            this.BalanceFood.Location = new System.Drawing.Point(176, 245);
+            this.BalanceFood.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.BalanceFood.Name = "BalanceFood";
-            this.BalanceFood.Size = new System.Drawing.Size(118, 32);
+            this.BalanceFood.Size = new System.Drawing.Size(91, 26);
             this.BalanceFood.TabIndex = 6;
             this.BalanceFood.Text = "Balance";
             // 
@@ -135,9 +144,10 @@
             // 
             this.TboxNum.BackColor = System.Drawing.Color.White;
             this.TboxNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TboxNum.Location = new System.Drawing.Point(240, 180);
+            this.TboxNum.Location = new System.Drawing.Point(180, 146);
+            this.TboxNum.Margin = new System.Windows.Forms.Padding(2);
             this.TboxNum.Name = "TboxNum";
-            this.TboxNum.Size = new System.Drawing.Size(185, 34);
+            this.TboxNum.Size = new System.Drawing.Size(140, 28);
             this.TboxNum.TabIndex = 5;
             this.TboxNum.Text = "202300";
             this.TboxNum.TextChanged += new System.EventHandler(this.TboxNum_TextChanged);
@@ -147,18 +157,20 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label2.Location = new System.Drawing.Point(234, 145);
+            this.label2.Location = new System.Drawing.Point(176, 118);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(141, 32);
+            this.label2.Size = new System.Drawing.Size(112, 26);
             this.label2.TabIndex = 13;
             this.label2.Text = "NumberID";
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::projectfastfood.Properties.Resources.loupe;
-            this.pictureBox2.Location = new System.Drawing.Point(381, 82);
+            this.pictureBox2.Location = new System.Drawing.Point(286, 67);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(37, 34);
+            this.pictureBox2.Size = new System.Drawing.Size(28, 28);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 12;
             this.pictureBox2.TabStop = false;
@@ -169,9 +181,10 @@
             this.roundPicture.BackColor = System.Drawing.SystemColors.Control;
             this.roundPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.roundPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.roundPicture.Location = new System.Drawing.Point(37, 180);
+            this.roundPicture.Location = new System.Drawing.Point(28, 146);
+            this.roundPicture.Margin = new System.Windows.Forms.Padding(2);
             this.roundPicture.Name = "roundPicture";
-            this.roundPicture.Size = new System.Drawing.Size(180, 180);
+            this.roundPicture.Size = new System.Drawing.Size(136, 137);
             this.roundPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.roundPicture.TabIndex = 11;
             this.roundPicture.TabStop = false;
@@ -184,9 +197,10 @@
             this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.Black;
-            this.btnDelete.Location = new System.Drawing.Point(344, 399);
+            this.btnDelete.Location = new System.Drawing.Point(258, 324);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(65, 53);
+            this.btnDelete.Size = new System.Drawing.Size(49, 43);
             this.btnDelete.TabIndex = 10;
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -198,9 +212,10 @@
             this.btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.Color.Black;
-            this.btnEdit.Location = new System.Drawing.Point(249, 399);
+            this.btnEdit.Location = new System.Drawing.Point(187, 324);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(2);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(65, 53);
+            this.btnEdit.Size = new System.Drawing.Size(49, 43);
             this.btnEdit.TabIndex = 9;
             this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
@@ -211,19 +226,20 @@
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.Black;
             this.btnSave.Image = global::projectfastfood.Properties.Resources.save__1_;
-            this.btnSave.Location = new System.Drawing.Point(162, 399);
+            this.btnSave.Location = new System.Drawing.Point(122, 324);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(65, 53);
+            this.btnSave.Size = new System.Drawing.Size(49, 43);
             this.btnSave.TabIndex = 8;
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // Forminsert
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SlateBlue;
-            this.ClientSize = new System.Drawing.Size(560, 503);
+            this.ClientSize = new System.Drawing.Size(420, 409);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.roundPicture);
@@ -239,6 +255,7 @@
             this.Controls.Add(this.panel1);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Forminsert";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";

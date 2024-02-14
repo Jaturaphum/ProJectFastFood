@@ -11,7 +11,6 @@ using System.Drawing;
 using System.Data.SqlClient;
 using System.Drawing.Imaging;
 using System.IO;
-using Vintasoft.Imaging.Annotation.Comments;
 using System.Diagnostics.Eventing.Reader;
 
 namespace projectfastfood
@@ -168,6 +167,20 @@ namespace projectfastfood
             }
             reader.Close();
             conn.Close();
+        }
+
+        private void TboxSearch_TextChanged(object sender, EventArgs e)
+        {
+            TboxSearch.KeyDown += TboxSearch_KeyDown;
+        }
+
+        private void TboxSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+                pictureBox2_Click(sender, e);
+            }
         }
     }
 }

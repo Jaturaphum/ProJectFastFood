@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/projectfastfood/ControlFoods.Designer.cs
+/projectfastfood/Formmain.Designer.cs
+/projectfastfood/Formmain.cs
+/projectfastfood/Formaccount.cs

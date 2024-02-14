@@ -21,11 +21,6 @@
         }
 
         #region Component Designer generated code
-
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
@@ -50,16 +45,18 @@
             this.panel1.Controls.Add(this.lblname);
             this.panel1.Controls.Add(this.lblbalance);
             this.panel1.Controls.Add(this.roundImage);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Location = new System.Drawing.Point(2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(393, 144);
+            this.panel1.Size = new System.Drawing.Size(295, 117);
             this.panel1.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(304, 66);
+            this.button1.Location = new System.Drawing.Point(228, 79);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 37);
+            this.button1.Size = new System.Drawing.Size(56, 30);
             this.button1.TabIndex = 4;
             this.button1.Text = "Pick";
             this.button1.UseVisualStyleBackColor = true;
@@ -71,9 +68,10 @@
             this.lblnumber.AutoSize = true;
             this.lblnumber.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lblnumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblnumber.Location = new System.Drawing.Point(300, 13);
+            this.lblnumber.Location = new System.Drawing.Point(213, 10);
+            this.lblnumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblnumber.Name = "lblnumber";
-            this.lblnumber.Size = new System.Drawing.Size(79, 20);
+            this.lblnumber.Size = new System.Drawing.Size(71, 17);
             this.lblnumber.TabIndex = 1;
             this.lblnumber.Text = "2023001";
             this.lblnumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -82,12 +80,13 @@
             // 
             this.lblname.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblname.AutoSize = true;
             this.lblname.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lblname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblname.Location = new System.Drawing.Point(318, 43);
+            this.lblname.Location = new System.Drawing.Point(155, 23);
+            this.lblname.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblname.Name = "lblname";
-            this.lblname.Size = new System.Drawing.Size(61, 20);
+            this.lblname.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblname.Size = new System.Drawing.Size(129, 31);
             this.lblname.TabIndex = 2;
             this.lblname.Text = "ชุดรวม";
             this.lblname.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -99,9 +98,10 @@
             this.lblbalance.AutoSize = true;
             this.lblbalance.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lblbalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblbalance.Location = new System.Drawing.Point(306, 106);
+            this.lblbalance.Location = new System.Drawing.Point(220, 55);
+            this.lblbalance.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblbalance.Name = "lblbalance";
-            this.lblbalance.Size = new System.Drawing.Size(73, 20);
+            this.lblbalance.Size = new System.Drawing.Size(64, 17);
             this.lblbalance.TabIndex = 3;
             this.lblbalance.Text = "50.00 ฿";
             this.lblbalance.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -110,20 +110,22 @@
             // 
             this.roundImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.roundImage.Image = global::projectfastfood.Properties.Resources._11701496_4771105;
-            this.roundImage.Location = new System.Drawing.Point(3, 3);
+            this.roundImage.Location = new System.Drawing.Point(2, 2);
+            this.roundImage.Margin = new System.Windows.Forms.Padding(2);
             this.roundImage.Name = "roundImage";
-            this.roundImage.Size = new System.Drawing.Size(148, 136);
+            this.roundImage.Size = new System.Drawing.Size(112, 111);
             this.roundImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.roundImage.TabIndex = 0;
             this.roundImage.TabStop = false;
             // 
             // ControlFoods
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ControlFoods";
-            this.Size = new System.Drawing.Size(399, 150);
+            this.Size = new System.Drawing.Size(299, 122);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.roundImage)).EndInit();
